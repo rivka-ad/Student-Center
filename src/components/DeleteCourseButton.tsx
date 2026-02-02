@@ -40,23 +40,23 @@ export default function DeleteCourseButton({ courseId, courseName }: DeleteCours
           <line x1="10" y1="11" x2="10" y2="17" />
           <line x1="14" y1="11" x2="14" y2="17" />
         </svg>
-        Delete
+        מחק
       </Button>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Delete Course">
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="מחק קורס">
         <div className="space-y-4">
           <p className="text-foreground">
-            Are you sure you want to delete <span className="font-semibold">{courseName}</span>?
+            האם אתה בטוח שברצונך למחוק את <span className="font-semibold">{courseName}</span>?
           </p>
           <p className="text-sm text-muted">
-            This will also delete all lessons, enrollments, and attendance records associated with this course. This action cannot be undone.
+            פעולה זו תמחק גם את כל השיעורים, ההרשמות ורשומות הנוכחות המשויכים לקורס זה. פעולה זו אינה ניתנת לביטול.
           </p>
           <div className="flex justify-end gap-3">
             <Button variant="secondary" onClick={() => setIsOpen(false)}>
-              Cancel
+              ביטול
             </Button>
             <Button variant="danger" onClick={handleDelete} isLoading={isPending}>
-              Delete Course
+              מחק קורס
             </Button>
           </div>
         </div>

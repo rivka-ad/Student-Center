@@ -40,21 +40,21 @@ export default function DeleteStudentButton({ studentId, studentName }: DeleteSt
           <line x1="10" y1="11" x2="10" y2="17" />
           <line x1="14" y1="11" x2="14" y2="17" />
         </svg>
-        Delete
+        מחק
       </Button>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Delete Student">
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="מחק תלמיד">
         <div className="space-y-4">
           <p className="text-foreground">
-            Are you sure you want to delete <span className="font-semibold">{studentName}</span>?
-            This action cannot be undone.
+            האם אתה בטוח שברצונך למחוק את <span className="font-semibold">{studentName}</span>?
+            פעולה זו אינה ניתנת לביטול.
           </p>
           <div className="flex justify-end gap-3">
             <Button variant="secondary" onClick={() => setIsOpen(false)}>
-              Cancel
+              ביטול
             </Button>
             <Button variant="danger" onClick={handleDelete} isLoading={isPending}>
-              Delete Student
+              מחק תלמיד
             </Button>
           </div>
         </div>

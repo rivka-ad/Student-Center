@@ -28,9 +28,9 @@ export default async function AttendancePage({ searchParams }: AttendancePagePro
     <AppLayout>
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground">Attendance Records</h1>
+        <h1 className="text-2xl font-bold text-foreground">רשומות נוכחות</h1>
         <p className="text-muted mt-1">
-          View and filter attendance records across all courses and students.
+          צפה וסנן רשומות נוכחות בכל הקורסים והתלמידים.
         </p>
       </div>
 
