@@ -33,9 +33,20 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL Support */
+[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
 }
 
 @layer base {

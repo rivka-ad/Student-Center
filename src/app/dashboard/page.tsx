@@ -19,7 +19,7 @@ export default async function DashboardPage() {
   const activeCourses = courses.filter(c => c.is_active)
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    return new Date(dateString).toLocaleDateString('he-IL', {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
@@ -36,8 +36,8 @@ export default async function DashboardPage() {
     <AppLayout>
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted mt-1">Welcome back! Here&apos;s an overview of your student center.</p>
+        <h1 className="text-2xl font-bold text-foreground">לוח בקרה</h1>
+        <p className="text-muted mt-1">ברוך הבא! הנה סקירה של מרכז התלמידים שלך.</p>
       </div>
 
       {/* Stats */}
@@ -46,7 +46,7 @@ export default async function DashboardPage() {
           <CardContent className="py-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted mb-1">Total Students</p>
+                <p className="text-sm text-muted mb-1">סה"כ תלמידים</p>
                 <p className="text-2xl font-bold text-foreground">{students.length}</p>
               </div>
               <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -65,7 +65,7 @@ export default async function DashboardPage() {
           <CardContent className="py-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted mb-1">Active Courses</p>
+                <p className="text-sm text-muted mb-1">קורסים פעילים</p>
                 <p className="text-2xl font-bold text-foreground">{activeCourses.length}</p>
               </div>
               <div className="h-10 w-10 rounded-lg bg-success/10 flex items-center justify-center">
@@ -82,7 +82,7 @@ export default async function DashboardPage() {
           <CardContent className="py-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted mb-1">Upcoming Lessons</p>
+                <p className="text-sm text-muted mb-1">שיעורים קרובים</p>
                 <p className="text-2xl font-bold text-foreground">{upcomingLessons.length}</p>
               </div>
               <div className="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center">
@@ -101,7 +101,7 @@ export default async function DashboardPage() {
           <CardContent className="py-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted mb-1">Attendance Rate</p>
+                <p className="text-sm text-muted mb-1">אחוז נוכחות</p>
                 <p className="text-2xl font-bold text-foreground">{attendanceRate}%</p>
               </div>
               <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -120,14 +120,14 @@ export default async function DashboardPage() {
         {/* Upcoming lessons */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <h2 className="text-lg font-semibold text-foreground">Upcoming Lessons</h2>
+            <h2 className="text-lg font-semibold text-foreground">שיעורים קרובים</h2>
             <Link href="/courses">
-              <Button variant="ghost" size="sm">View All Courses</Button>
+              <Button variant="ghost" size="sm">צפה בכל הקורסים</Button>
             </Link>
           </CardHeader>
           {upcomingLessons.length === 0 ? (
             <CardContent className="py-8 text-center">
-              <p className="text-muted">No upcoming lessons scheduled</p>
+              <p className="text-muted">אין שיעורים קרובים מתוכננים</p>
             </CardContent>
           ) : (
             <div className="divide-y divide-border">
@@ -167,16 +167,16 @@ export default async function DashboardPage() {
         {/* Recent students */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <h2 className="text-lg font-semibold text-foreground">Recent Students</h2>
+            <h2 className="text-lg font-semibold text-foreground">תלמידים אחרונים</h2>
             <Link href="/students">
-              <Button variant="ghost" size="sm">View All</Button>
+              <Button variant="ghost" size="sm">צפה בהכל</Button>
             </Link>
           </CardHeader>
           {students.length === 0 ? (
             <CardContent className="py-8 text-center">
-              <p className="text-muted mb-4">No students added yet</p>
+              <p className="text-muted mb-4">עדיין לא נוספו תלמידים</p>
               <Link href="/students/new">
-                <Button size="sm">Add Your First Student</Button>
+                <Button size="sm">הוסף את התלמיד הראשון שלך</Button>
               </Link>
             </CardContent>
           ) : (
@@ -203,7 +203,7 @@ export default async function DashboardPage() {
 
       {/* Quick actions */}
       <div className="mt-8">
-        <h2 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">פעולות מהירות</h2>
         <div className="flex flex-wrap gap-3">
           <Link href="/students/new">
             <Button variant="secondary">
@@ -213,7 +213,7 @@ export default async function DashboardPage() {
                 <line x1="20" y1="8" x2="20" y2="14" />
                 <line x1="23" y1="11" x2="17" y2="11" />
               </svg>
-              Add Student
+              הוסף תלמיד
             </Button>
           </Link>
           <Link href="/courses/new">
@@ -224,7 +224,7 @@ export default async function DashboardPage() {
                 <line x1="12" y1="6" x2="12" y2="12" />
                 <line x1="9" y1="9" x2="15" y2="9" />
               </svg>
-              Create Course
+              צור קורס
             </Button>
           </Link>
           <Link href="/attendance">
@@ -234,7 +234,7 @@ export default async function DashboardPage() {
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
                 <path d="m9 14 2 2 4-4" />
               </svg>
-              View Attendance
+              צפה בנוכחות
             </Button>
           </Link>
         </div>

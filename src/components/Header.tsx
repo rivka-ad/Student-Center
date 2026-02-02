@@ -29,7 +29,7 @@ export default async function Header() {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <span className="text-lg font-semibold text-foreground">Student Center</span>
+            <span className="text-lg font-semibold text-foreground">מרכז תלמידים</span>
           </Link>
 
           {user && (
@@ -39,7 +39,7 @@ export default async function Header() {
               </span>
               <form action={signOut}>
                 <Button type="submit" variant="ghost" size="sm">
-                  Sign Out
+                  התנתק
                 </Button>
               </form>
             </div>
