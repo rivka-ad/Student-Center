@@ -6,7 +6,7 @@ import Button from '@/components/Button'
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>
+  searchParams: Promise<{ error?: string; details?: string }>
 }) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -17,6 +17,7 @@ export default async function LoginPage({
 
   const params = await searchParams
   const error = params.error
+  const errorDetails = params.details
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
@@ -58,7 +59,10 @@ export default async function LoginPage({
         <div className="bg-card border border-border rounded-2xl p-8 shadow-xl">
           {error && (
             <div className="mb-6 p-4 rounded-lg bg-error/10 border border-error/20 text-error text-sm">
-              Authentication failed. Please try again.
+              <p className="font-semibold">Authentication failed. Please try again.</p>
+              {errorDetails && (
+                <p className="mt-1 text-xs opacity-80">Error: {errorDetails}</p>
+              )}
             </div>
           )}
 
