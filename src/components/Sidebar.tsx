@@ -55,8 +55,8 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="hidden lg:fixed lg:inset-y-0 lg:z-30 lg:flex lg:w-64 lg:flex-col">
-      <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-border bg-card px-6 pt-20">
+    <aside className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-30 lg:flex lg:w-64 lg:flex-col">
+      <div className="flex grow flex-col gap-y-5 overflow-y-auto border-l border-border bg-card px-6 pt-20">
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-1">
             {navigation.map((item) => {

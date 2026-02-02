@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 const navigation = [
   {
-    name: 'Dashboard',
+    name: 'לוח בקרה',
     href: '/dashboard',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,7 +17,7 @@ const navigation = [
     ),
   },
   {
-    name: 'Students',
+    name: 'תלמידים',
     href: '/students',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -29,7 +29,7 @@ const navigation = [
     ),
   },
   {
-    name: 'Courses',
+    name: 'קורסים',
     href: '/courses',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -39,7 +39,7 @@ const navigation = [
     ),
   },
   {
-    name: 'Attendance',
+    name: 'נוכחות',
     href: '/attendance',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
