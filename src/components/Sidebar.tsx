@@ -56,7 +56,31 @@ export default function Sidebar() {
 
   return (
     <aside className="hidden lg:fixed lg:inset-y-0 lg:right-0 lg:z-30 lg:flex lg:w-64 lg:flex-col">
-      <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-border bg-card px-6 pt-20">
+      <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-border bg-card px-6 pt-6">
+        {/* Logo and App Name */}
+        <div className="flex items-center gap-3 pb-4 border-b border-border">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <span className="text-lg font-semibold text-foreground">מרכז תלמידים</span>
+        </div>
+        
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-1">
             {navigation.map((item) => {
