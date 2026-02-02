@@ -1,11 +1,11 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
 import { sendStudentEmail } from '@/actions/email'
 import { Student } from '@/types/database'
 import Button from './Button'
 import Input from './Input'
-import Textarea from './Textarea'
+import RichTextEditor from './RichTextEditor'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
@@ -21,8 +21,11 @@ interface FormState {
 
 export default function SendEmailForm({ student }: SendEmailFormProps) {
   const router = useRouter()
+  const [emailBody, setEmailBody] = useState('')
 
   const formAction = async (_prevState: FormState, formData: FormData): Promise<FormState> => {
+    // Add the rich text HTML content to the form data
+    formData.set('body', emailBody)
     const response = await sendStudentEmail(student.id, formData)
     return response
   }
@@ -78,14 +81,17 @@ export default function SendEmailForm({ student }: SendEmailFormProps) {
         disabled={isPending}
       />
 
-      <Textarea
-        name="body"
-        label="הודעה"
-        placeholder="כתוב את ההודעה שלך כאן..."
-        required
-        rows={8}
-        disabled={isPending}
-      />
+      <div className="space-y-1.5">
+        <label className="block text-sm font-medium text-foreground">
+          הודעה <span className="text-error">*</span>
+        </label>
+        <RichTextEditor
+          content={emailBody}
+          onChange={setEmailBody}
+          placeholder="כתוב את ההודעה שלך כאן..."
+          disabled={isPending}
+        />
+      </div>
 
       <div className="flex items-center justify-end gap-3 pt-4 border-t border-border">
         <Link href={`/students/${student.id}`}>
