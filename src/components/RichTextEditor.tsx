@@ -1,10 +1,17 @@
 'use client'
 
-import { useEditor, EditorContent } from '@tiptap/react'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
+
+const EditorContent = dynamic(
+  () => import('@tiptap/react').then((mod) => mod.EditorContent),
+  { ssr: false }
+)
+
+import { useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from '@tiptap/extension-text-align'
 import Placeholder from '@tiptap/extension-placeholder'
-import { useEffect } from 'react'
 
 interface RichTextEditorProps {
   content: string
