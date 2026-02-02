@@ -29,7 +29,7 @@ export default function StudentForm({ student }: StudentFormProps) {
       return {}
     } catch (error) {
       return {
-        error: error instanceof Error ? error.message : 'Something went wrong',
+        error: error instanceof Error ? error.message : 'משהו השתבש',
       }
     }
   }
@@ -46,8 +46,8 @@ export default function StudentForm({ student }: StudentFormProps) {
 
       <Input
         name="full_name"
-        label="Full Name"
-        placeholder="Enter student's full name"
+        label="שם מלא"
+        placeholder="הזן את שם התלמיד המלא"
         defaultValue={student?.full_name}
         required
       />
@@ -55,7 +55,7 @@ export default function StudentForm({ student }: StudentFormProps) {
       <Input
         name="email"
         type="email"
-        label="Email Address"
+        label="כתובת אימייל"
         placeholder="student@example.com"
         defaultValue={student?.email}
         required
@@ -64,15 +64,15 @@ export default function StudentForm({ student }: StudentFormProps) {
       <Input
         name="phone"
         type="tel"
-        label="Phone Number"
-        placeholder="(555) 123-4567"
+        label="מספר טלפון"
+        placeholder="050-1234567"
         defaultValue={student?.phone || ''}
       />
 
       <Textarea
         name="notes"
-        label="Notes"
-        placeholder="Add any notes about this student..."
+        label="הערות"
+        placeholder="הוסף הערות על התלמיד..."
         defaultValue={student?.notes || ''}
         rows={4}
       />
@@ -80,11 +80,11 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="flex items-center justify-end gap-3 pt-4 border-t border-border">
         <Link href={isEditing ? `/students/${student.id}` : '/dashboard'}>
           <Button type="button" variant="secondary">
-            Cancel
+            ביטול
           </Button>
         </Link>
         <Button type="submit" isLoading={isPending}>
-          {isEditing ? 'Save Changes' : 'Add Student'}
+          {isEditing ? 'שמור שינויים' : 'הוסף תלמיד'}
         </Button>
       </div>
     </form>

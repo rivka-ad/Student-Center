@@ -42,7 +42,7 @@ export default function CourseForm({ course }: CourseFormProps) {
       return {}
     } catch (error) {
       return {
-        error: error instanceof Error ? error.message : 'Something went wrong',
+        error: error instanceof Error ? error.message : 'משהו השתבש',
       }
     }
   }
@@ -59,23 +59,23 @@ export default function CourseForm({ course }: CourseFormProps) {
 
       <Input
         name="name"
-        label="Course Name"
-        placeholder="e.g., Introduction to Mathematics"
+        label="שם הקורס"
+        placeholder="לדוגמה: מבוא למתמטיקה"
         defaultValue={course?.name}
         required
       />
 
       <Textarea
         name="description"
-        label="Description"
-        placeholder="Describe what this course covers..."
+        label="תיאור"
+        placeholder="תאר את תוכן הקורס..."
         defaultValue={course?.description || ''}
         rows={3}
       />
 
       <div className="space-y-1.5">
         <label className="block text-sm font-medium text-foreground">
-          Color
+          צבע
         </label>
         <div className="flex flex-wrap gap-2">
           {colorOptions.map((color) => (
@@ -100,13 +100,13 @@ export default function CourseForm({ course }: CourseFormProps) {
         <Input
           name="start_date"
           type="date"
-          label="Start Date"
+          label="תאריך התחלה"
           defaultValue={course?.start_date || ''}
         />
         <Input
           name="end_date"
           type="date"
-          label="End Date"
+          label="תאריך סיום"
           defaultValue={course?.end_date || ''}
         />
       </div>
@@ -122,7 +122,7 @@ export default function CourseForm({ course }: CourseFormProps) {
             className="h-4 w-4 rounded border-border bg-secondary text-primary focus:ring-primary"
           />
           <label htmlFor="is_active" className="text-sm text-foreground">
-            Course is active
+            הקורס פעיל
           </label>
         </div>
       )}
@@ -130,11 +130,11 @@ export default function CourseForm({ course }: CourseFormProps) {
       <div className="flex items-center justify-end gap-3 pt-4 border-t border-border">
         <Link href={isEditing ? `/courses/${course.id}` : '/courses'}>
           <Button type="button" variant="secondary">
-            Cancel
+            ביטול
           </Button>
         </Link>
         <Button type="submit" isLoading={isPending}>
-          {isEditing ? 'Save Changes' : 'Create Course'}
+          {isEditing ? 'שמור שינויים' : 'צור קורס'}
         </Button>
       </div>
     </form>

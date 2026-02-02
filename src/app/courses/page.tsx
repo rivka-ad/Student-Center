@@ -14,11 +14,11 @@ export default async function CoursesPage() {
       {/* Page header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Courses</h1>
+          <h1 className="text-2xl font-bold text-foreground">קורסים</h1>
           <p className="text-muted mt-1">
             {courses.length === 0
-              ? 'No courses yet. Create your first course to get started.'
-              : `${courses.length} course${courses.length === 1 ? '' : 's'} total`}
+              ? 'עדיין אין קורסים. צור את הקורס הראשון שלך כדי להתחיל.'
+              : `סה"כ ${courses.length} קורסים`}
           </p>
         </div>
         <Link href="/courses/new">
@@ -38,7 +38,7 @@ export default async function CoursesPage() {
               <line x1="12" y1="5" x2="12" y2="19" />
               <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
-            New Course
+            קורס חדש
           </Button>
         </Link>
       </div>
@@ -52,9 +52,9 @@ export default async function CoursesPage() {
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
             </svg>
           }
-          title="No courses yet"
-          description="Get started by creating your first course."
-          actionLabel="Create Your First Course"
+          title="עדיין אין קורסים"
+          description="התחל על ידי יצירת הקורס הראשון שלך."
+          actionLabel="צור את הקורס הראשון שלך"
           actionHref="/courses/new"
         />
       ) : (
@@ -84,7 +84,7 @@ export default async function CoursesPage() {
                       </svg>
                     </div>
                     <Badge variant={course.is_active ? 'success' : 'default'}>
-                      {course.is_active ? 'Active' : 'Inactive'}
+                      {course.is_active ? 'פעיל' : 'לא פעיל'}
                     </Badge>
                   </div>
                   <h3 className="font-semibold text-foreground mb-1">{course.name}</h3>
