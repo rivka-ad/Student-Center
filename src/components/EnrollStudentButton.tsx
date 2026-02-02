@@ -45,7 +45,7 @@ export default function EnrollStudentButton({ courseId, availableStudents }: Enr
         setIsOpen(false)
         setSelectedStudents(new Set())
       } catch (e) {
-        setError(e instanceof Error ? e.message : 'Failed to enroll students')
+        setError(e instanceof Error ? e.message : 'נכשל ברישום התלמידים')
       }
     })
   }
@@ -78,10 +78,10 @@ export default function EnrollStudentButton({ courseId, availableStudents }: Enr
           <line x1="20" y1="8" x2="20" y2="14" />
           <line x1="23" y1="11" x2="17" y2="11" />
         </svg>
-        Enroll Students
+        רשום תלמידים
       </Button>
 
-      <Modal isOpen={isOpen} onClose={handleClose} title="Enroll Students">
+      <Modal isOpen={isOpen} onClose={handleClose} title="רשום תלמידים">
         <div className="space-y-4">
           {error && (
             <div className="p-3 rounded-lg bg-error/10 border border-error/20 text-error text-sm">
@@ -91,20 +91,20 @@ export default function EnrollStudentButton({ courseId, availableStudents }: Enr
 
           {availableStudents.length === 0 ? (
             <p className="text-muted text-center py-8">
-              All students are already enrolled in this course.
+              כל התלמידים כבר רשומים לקורס זה.
             </p>
           ) : (
             <>
               <div className="flex items-center justify-between">
                 <p className="text-sm text-muted">
-                  {selectedStudents.size} of {availableStudents.length} selected
+                  {selectedStudents.size} מתוך {availableStudents.length} נבחרו
                 </p>
                 <button
                   type="button"
                   onClick={handleSelectAll}
                   className="text-sm text-primary hover:underline"
                 >
-                  {selectedStudents.size === availableStudents.length ? 'Deselect All' : 'Select All'}
+                  {selectedStudents.size === availableStudents.length ? 'בטל בחירת הכל' : 'בחר הכל'}
                 </button>
               </div>
 
@@ -132,14 +132,14 @@ export default function EnrollStudentButton({ courseId, availableStudents }: Enr
 
           <div className="flex justify-end gap-3 pt-2">
             <Button variant="secondary" onClick={handleClose} disabled={isPending}>
-              Cancel
+              ביטול
             </Button>
             <Button
               onClick={handleEnroll}
               isLoading={isPending}
               disabled={selectedStudents.size === 0}
             >
-              Enroll {selectedStudents.size > 0 && `(${selectedStudents.size})`}
+              רשום {selectedStudents.size > 0 && `(${selectedStudents.size})`}
             </Button>
           </div>
         </div>

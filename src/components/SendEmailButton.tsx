@@ -57,10 +57,10 @@ export default function SendEmailButton({ student }: SendEmailButtonProps) {
           <rect x="2" y="4" width="20" height="16" rx="2" />
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
         </svg>
-        Send Email
+        שלח אימייל
       </Button>
 
-      <Modal isOpen={isOpen} onClose={handleClose} title="Send Email">
+      <Modal isOpen={isOpen} onClose={handleClose} title="שלח אימייל">
         <form action={handleSubmit} className="space-y-4">
           {result?.success && (
             <div className="p-4 rounded-lg bg-success/10 border border-success/20 text-success text-sm flex items-center gap-2">
@@ -77,7 +77,7 @@ export default function SendEmailButton({ student }: SendEmailButtonProps) {
               >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Email sent successfully!
+              האימייל נשלח בהצלחה!
             </div>
           )}
 
@@ -89,22 +89,22 @@ export default function SendEmailButton({ student }: SendEmailButtonProps) {
 
           <div className="p-3 rounded-lg bg-secondary border border-border">
             <p className="text-sm text-muted">
-              To: <span className="text-foreground">{student.email}</span>
+              אל: <span className="text-foreground">{student.email}</span>
             </p>
           </div>
 
           <Input
             name="subject"
-            label="Subject"
-            placeholder="Enter email subject"
+            label="נושא"
+            placeholder="הזן נושא אימייל"
             required
             disabled={isPending}
           />
 
           <Textarea
             name="body"
-            label="Message"
-            placeholder="Write your message here..."
+            label="הודעה"
+            placeholder="כתוב את ההודעה שלך כאן..."
             required
             rows={6}
             disabled={isPending}
@@ -112,7 +112,7 @@ export default function SendEmailButton({ student }: SendEmailButtonProps) {
 
           <div className="flex justify-end gap-3 pt-2">
             <Button type="button" variant="secondary" onClick={handleClose} disabled={isPending}>
-              Cancel
+              ביטול
             </Button>
             <Button type="submit" isLoading={isPending}>
               <svg
@@ -130,7 +130,7 @@ export default function SendEmailButton({ student }: SendEmailButtonProps) {
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
-              Send Email
+              שלח אימייל
             </Button>
           </div>
         </form>

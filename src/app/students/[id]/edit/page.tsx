@@ -23,7 +23,7 @@ export default async function EditStudentPage({ params }: EditStudentPageProps) 
         <ol className="flex items-center gap-2 text-sm">
           <li>
             <Link href="/students" className="text-muted hover:text-foreground transition-colors">
-              Students
+              תלמידים
             </Link>
           </li>
           <li className="text-muted">/</li>
@@ -36,14 +36,14 @@ export default async function EditStudentPage({ params }: EditStudentPageProps) 
             </Link>
           </li>
           <li className="text-muted">/</li>
-          <li className="text-foreground">Edit</li>
+          <li className="text-foreground">עריכה</li>
         </ol>
       </nav>
 
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground">Edit Student</h1>
-        <p className="text-muted mt-1">Update the student&apos;s information below.</p>
+        <h1 className="text-2xl font-bold text-foreground">ערוך תלמיד</h1>
+        <p className="text-muted mt-1">עדכן את פרטי התלמיד למטה.</p>
       </div>
 
       {/* Form */}

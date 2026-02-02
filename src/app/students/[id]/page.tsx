@@ -30,7 +30,7 @@ export default async function StudentPage({ params }: StudentPageProps) {
   ])
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    return new Date(dateString).toLocaleDateString('he-IL', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -50,7 +50,7 @@ export default async function StudentPage({ params }: StudentPageProps) {
         <ol className="flex items-center gap-2 text-sm">
           <li>
             <Link href="/students" className="text-muted hover:text-foreground transition-colors">
-              Students
+              תלמידים
             </Link>
           </li>
           <li className="text-muted">/</li>
@@ -89,7 +89,7 @@ export default async function StudentPage({ params }: StudentPageProps) {
                   <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                   <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                 </svg>
-                Edit
+                ערוך
               </Button>
             </Link>
             <DeleteStudentButton studentId={student.id} studentName={student.full_name} />
@@ -99,7 +99,7 @@ export default async function StudentPage({ params }: StudentPageProps) {
         <CardContent>
           <dl className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <dt className="text-sm font-medium text-muted mb-1">Email</dt>
+              <dt className="text-sm font-medium text-muted mb-1">אימייל</dt>
               <dd className="text-foreground">
                 <a href={`mailto:${student.email}`} className="hover:text-primary transition-colors">
                   {student.email}
@@ -107,25 +107,25 @@ export default async function StudentPage({ params }: StudentPageProps) {
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-muted mb-1">Phone</dt>
+              <dt className="text-sm font-medium text-muted mb-1">טלפון</dt>
               <dd className="text-foreground">
                 {student.phone ? (
                   <a href={`tel:${student.phone}`} className="hover:text-primary transition-colors">
                     {student.phone}
                   </a>
                 ) : (
-                  <span className="text-muted">Not provided</span>
+                  <span className="text-muted">לא סופק</span>
                 )}
               </dd>
             </div>
             <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-muted mb-1">Notes</dt>
+              <dt className="text-sm font-medium text-muted mb-1">הערות</dt>
               <dd className="text-foreground whitespace-pre-wrap">
-                {student.notes || <span className="text-muted">No notes</span>}
+                {student.notes || <span className="text-muted">אין הערות</span>}
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-muted mb-1">Added</dt>
+              <dt className="text-sm font-medium text-muted mb-1">נוסף</dt>
               <dd className="text-foreground">{formatDate(student.created_at)}</dd>
             </div>
           </dl>
@@ -136,25 +136,25 @@ export default async function StudentPage({ params }: StudentPageProps) {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Card>
           <CardContent className="py-5">
-            <p className="text-sm text-muted mb-1">Enrolled Courses</p>
+            <p className="text-sm text-muted mb-1">קורסים רשומים</p>
             <p className="text-2xl font-bold text-foreground">{enrollments.length}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="py-5">
-            <p className="text-sm text-muted mb-1">Attendance Rate</p>
+            <p className="text-sm text-muted mb-1">אחוז נוכחות</p>
             <p className="text-2xl font-bold text-foreground">{attendanceRate}%</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="py-5">
-            <p className="text-sm text-muted mb-1">Present</p>
+            <p className="text-sm text-muted mb-1">נוכח</p>
             <p className="text-2xl font-bold text-success">{attendanceStats.present}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="py-5">
-            <p className="text-sm text-muted mb-1">Absent</p>
+            <p className="text-sm text-muted mb-1">נעדר</p>
             <p className="text-2xl font-bold text-error">{attendanceStats.absent}</p>
           </CardContent>
         </Card>
@@ -164,11 +164,11 @@ export default async function StudentPage({ params }: StudentPageProps) {
         {/* Enrolled courses */}
         <Card>
           <CardHeader>
-            <h2 className="text-lg font-semibold text-foreground">Enrolled Courses</h2>
+            <h2 className="text-lg font-semibold text-foreground">קורסים רשומים</h2>
           </CardHeader>
           {enrollments.length === 0 ? (
             <CardContent className="py-8 text-center">
-              <p className="text-muted">Not enrolled in any courses</p>
+              <p className="text-muted">לא רשום לאף קורס</p>
             </CardContent>
           ) : (
             <div className="divide-y divide-border">
@@ -192,7 +192,7 @@ export default async function StudentPage({ params }: StudentPageProps) {
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-foreground truncate">{course?.name}</p>
                       <p className="text-sm text-muted">
-                        Enrolled {new Date(enrollment.enrolled_at).toLocaleDateString()}
+                        נרשם {new Date(enrollment.enrolled_at).toLocaleDateString('he-IL')}
                       </p>
                     </div>
                     <Badge variant={enrollment.status === 'active' ? 'success' : 'default'}>
@@ -208,12 +208,12 @@ export default async function StudentPage({ params }: StudentPageProps) {
         {/* Email history */}
         <Card>
           <CardHeader>
-            <h2 className="text-lg font-semibold text-foreground">Email History</h2>
+            <h2 className="text-lg font-semibold text-foreground">היסטוריית אימיילים</h2>
           </CardHeader>
           
           {emailLogs.length === 0 ? (
             <CardContent className="py-8 text-center">
-              <p className="text-muted">No emails sent yet</p>
+              <p className="text-muted">עדיין לא נשלחו אימיילים</p>
             </CardContent>
           ) : (
             <div className="divide-y divide-border max-h-96 overflow-y-auto">
@@ -226,7 +226,7 @@ export default async function StudentPage({ params }: StudentPageProps) {
                           {log.subject}
                         </span>
                         <Badge variant={log.status === 'sent' ? 'success' : 'error'}>
-                          {log.status === 'sent' ? 'Sent' : 'Failed'}
+                          {log.status === 'sent' ? 'נשלח' : 'נכשל'}
                         </Badge>
                       </div>
                       <p className="text-sm text-muted line-clamp-2">{log.body}</p>

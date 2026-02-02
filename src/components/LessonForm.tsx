@@ -39,7 +39,7 @@ export default function LessonForm({ courseId, lesson }: LessonFormProps) {
       return {}
     } catch (error) {
       return {
-        error: error instanceof Error ? error.message : 'Something went wrong',
+        error: error instanceof Error ? error.message : 'משהו השתבש',
       }
     }
   }
@@ -56,16 +56,16 @@ export default function LessonForm({ courseId, lesson }: LessonFormProps) {
 
       <Input
         name="title"
-        label="Lesson Title"
-        placeholder="e.g., Introduction to Algebra"
+        label="כותרת השיעור"
+        placeholder="לדוגמה: מבוא לאלגברה"
         defaultValue={lesson?.title}
         required
       />
 
       <Textarea
         name="description"
-        label="Description"
-        placeholder="What will be covered in this lesson..."
+        label="תיאור"
+        placeholder="מה יכוסה בשיעור זה..."
         defaultValue={lesson?.description || ''}
         rows={3}
       />
@@ -74,14 +74,14 @@ export default function LessonForm({ courseId, lesson }: LessonFormProps) {
         <Input
           name="lesson_date"
           type="date"
-          label="Date"
+          label="תאריך"
           defaultValue={defaultDate}
           required
         />
         <Input
           name="lesson_time"
           type="time"
-          label="Time"
+          label="שעה"
           defaultValue={defaultTime}
           required
         />
@@ -91,7 +91,7 @@ export default function LessonForm({ courseId, lesson }: LessonFormProps) {
         <Input
           name="duration_minutes"
           type="number"
-          label="Duration (minutes)"
+          label="משך (דקות)"
           placeholder="60"
           defaultValue={lesson?.duration_minutes || 60}
           min={15}
@@ -99,8 +99,8 @@ export default function LessonForm({ courseId, lesson }: LessonFormProps) {
         />
         <Input
           name="location"
-          label="Location"
-          placeholder="e.g., Room 101"
+          label="מיקום"
+          placeholder="לדוגמה: חדר 101"
           defaultValue={lesson?.location || ''}
         />
       </div>
@@ -108,11 +108,11 @@ export default function LessonForm({ courseId, lesson }: LessonFormProps) {
       <div className="flex items-center justify-end gap-3 pt-4 border-t border-border">
         <Link href={isEditing ? `/courses/${courseId}/lessons/${lesson.id}` : `/courses/${courseId}`}>
           <Button type="button" variant="secondary">
-            Cancel
+            ביטול
           </Button>
         </Link>
         <Button type="submit" isLoading={isPending}>
-          {isEditing ? 'Save Changes' : 'Create Lesson'}
+          {isEditing ? 'שמור שינויים' : 'צור שיעור'}
         </Button>
       </div>
     </form>

@@ -27,7 +27,7 @@ export default function StudentTableRow({ student }: StudentTableRowProps) {
           <Link
             href={`/students/${student.id}`}
             className="inline-flex items-center justify-center rounded-lg p-2 text-muted hover:bg-secondary hover:text-foreground transition-colors"
-            title="View student"
+            title="צפה בתלמיד"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export default function StudentTableRow({ student }: StudentTableRowProps) {
           <Link
             href={`/students/${student.id}/edit`}
             className="inline-flex items-center justify-center rounded-lg p-2 text-muted hover:bg-secondary hover:text-foreground transition-colors"
-            title="Edit student"
+            title="ערוך תלמיד"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

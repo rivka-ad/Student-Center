@@ -10,18 +10,18 @@ export default function NewStudentPage() {
         <ol className="flex items-center gap-2 text-sm">
           <li>
             <Link href="/students" className="text-muted hover:text-foreground transition-colors">
-              Students
+              תלמידים
             </Link>
           </li>
           <li className="text-muted">/</li>
-          <li className="text-foreground">New Student</li>
+          <li className="text-foreground">תלמיד חדש</li>
         </ol>
       </nav>
 
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground">Add New Student</h1>
-        <p className="text-muted mt-1">Fill in the details below to add a new student.</p>
+        <h1 className="text-2xl font-bold text-foreground">הוסף תלמיד חדש</h1>
+        <p className="text-muted mt-1">מלא את הפרטים למטה כדי להוסיף תלמיד חדש.</p>
       </div>
 
       {/* Form */}

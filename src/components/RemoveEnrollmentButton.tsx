@@ -31,7 +31,7 @@ export default function RemoveEnrollmentButton({
       <button
         onClick={() => setIsOpen(true)}
         className="inline-flex items-center justify-center rounded-lg p-2 text-muted hover:bg-secondary hover:text-error transition-colors"
-        title="Remove from course"
+        title="הסר מהקורס"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,21 +51,20 @@ export default function RemoveEnrollmentButton({
         </svg>
       </button>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Remove Student">
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="הסר תלמיד">
         <div className="space-y-4">
           <p className="text-foreground">
-            Are you sure you want to remove <span className="font-semibold">{studentName}</span> from
-            this course?
+            האם אתה בטוח שברצונך להסיר את <span className="font-semibold">{studentName}</span> מהקורס הזה?
           </p>
           <p className="text-sm text-muted">
-            This will also delete all attendance records for this student in this course.
+            פעולה זו תמחק גם את כל רשומות הנוכחות של תלמיד זה בקורס זה.
           </p>
           <div className="flex justify-end gap-3">
             <Button variant="secondary" onClick={() => setIsOpen(false)}>
-              Cancel
+              ביטול
             </Button>
             <Button variant="danger" onClick={handleRemove} isLoading={isPending}>
-              Remove Student
+              הסר תלמיד
             </Button>
           </div>
         </div>
